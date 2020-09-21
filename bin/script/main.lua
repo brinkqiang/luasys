@@ -2,7 +2,7 @@
 
 local luasys = require("luasys")
 
-print(luasys.gettid())
-print(luasys.getpid())
+print(luasys.GetTID())
+print(luasys.GetPID())
 
 

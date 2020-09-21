@@ -28,8 +28,8 @@ static sol::table require_api(sol::this_state L)
 {
     sol::state_view lua(L);
     sol::table module = lua.create_table();
-    module.set_function("gettid",&Cluasys::gettid);
-    module.set_function("getpid",&Cluasys::getpid);
+    module.set_function("GetTID",&Cluasys::GetTID);
+    module.set_function("GetPID",&Cluasys::GetPID);
     return module;
 }
 }

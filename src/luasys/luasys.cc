@@ -20,21 +20,27 @@
 // SOFTWARE.
 
 #include "luasys.h"
-#include<iostream>
+#include <iostream>
+#include <thread>
 
 #ifdef WIN32
 #include <windows.h>
 #else
-#include "unistd.h"
+#include <unistd.h>
+#include <sys/syscall.h>
+pid_t gettid()
+{
+    return syscall(SYS_gettid);
+}
+
 #endif
 
 Cluasys::Cluasys(sol::this_state L)
     : m_oState(L)
 {
-
 }
 
-int32_t Cluasys::gettid()
+int32_t Cluasys::GetTID()
 {
 #ifdef WIN32
     return GetCurrentThreadId();
@@ -43,7 +49,7 @@ int32_t Cluasys::gettid()
 #endif
 }
 
-int32_t Cluasys::getpid()
+int32_t Cluasys::GetPID()
 {
 #ifdef WIN32
     return GetCurrentProcessId();

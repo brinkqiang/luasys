@@ -30,8 +30,8 @@ class Cluasys
 public:
     Cluasys(sol::this_state L);
 
-    static int32_t gettid();
-    static int32_t getpid();
+    static int32_t GetTID();
+    static int32_t GetPID();
 private:
     sol::state_view m_oState;
 };
